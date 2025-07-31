@@ -5,10 +5,14 @@ if __name__ == "__main__":
     max_n = 4096 * 1
     # max_n = 81920
 
+    rng = np.random.default_rng()
+
     dtype = np.float32
-    a = np.random.rand(max_n, max_n).astype(dtype)
-    b = np.random.rand(max_n, max_n).astype(dtype)
-    elem_size = np.dtype(np.float32).itemsize
+
+    a = rng.random((max_n, max_n), dtype=dtype)
+    b = rng.random((max_n, max_n), dtype=dtype)
+
+    elem_size = np.dtype(dtype).itemsize
 
     while True:
         begin = time.time()
